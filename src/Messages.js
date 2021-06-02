@@ -30,8 +30,8 @@ const Messages = {
     div.innerHTML = content + div.innerHTML;
 
     div.style.background = `#${userPreferences.background}` || "bg-black"
-    cardMessages.style.background = `#${userPreferences.messageBackground}` || "bg-gray-800"
-    cardMessages.style.color = `#${userPreferences.textColor}` || "text-white"
+    cardMessages?.style.background = `#${userPreferences.messageBackground}` || "bg-gray-800"
+    cardMessages?.style.color = `#${userPreferences.textColor}` || "text-white"
   },
   channelClasses(name) {
     const channels = {
