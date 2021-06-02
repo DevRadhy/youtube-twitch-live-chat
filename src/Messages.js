@@ -19,7 +19,7 @@ const Messages = {
     message = parseEmotes(message, tags)
     
     const content = `
-    <p class="mb-4 p-4 shadow text-white" style="{ background: ${userPreferences.background}; }">
+    <p class="mb-4 p-4 shadow text-white" style="background: ${userPreferences.background};">
       <span class="text-gray-400 text-sm uppercase mr-4 block tracking-wide ${channelClasses}">${channel}</span>
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
