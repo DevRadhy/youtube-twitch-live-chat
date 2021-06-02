@@ -12,6 +12,7 @@ const Messages = {
   },
   render({ tags, message, channel }) {
     const div = document.querySelector('div')
+    const cardMessages = document.getElementById('.card-message')
     
     const channelClasses = Messages.channelClasses(channel).join(" ")
     const userPreferences = Preferences.query()
@@ -21,12 +22,16 @@ const Messages = {
     message = parseEmotes(message, tags)
     
     const content = `
-    <p class="mb-4 p-4 shadow" style="background: #${userPreferences.messageBackground}; color: #${userPreferences.textColor};">
+    <p class="mb-4 p-4 shadow bg-gray-800 text-white card-message">
       <span class="text-gray-400 text-sm uppercase mr-4 block tracking-wide ${channelClasses}">${channel}</span>
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
     
     div.innerHTML = content + div.innerHTML;
+
+    div.style.background = `#${userPreferences.background}`
+    cardMessages.style.background = `#${userPreferences.messageBackground}`
+    cardMessages.style.background = `#${userPreferences.textColor}`
   },
   channelClasses(name) {
     const channels = {
