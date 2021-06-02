@@ -31,7 +31,7 @@ const Messages = {
 
     div.style.background = `#${userPreferences.background}`
 
-    if(cardMessages) return
+    if(!cardMessages) return
 
     cardMessages.style.background = `#${userPreferences.messageBackground}`
     cardMessages.style.color = `#${userPreferences.textColor}`
