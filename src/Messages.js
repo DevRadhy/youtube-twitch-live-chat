@@ -1,5 +1,6 @@
 import { Storage } from './Storage.js';
 import { parseEmotes } from './Emotes.js';
+import { Preferences } from '../lib/preferences.js';
 
 const Messages = {
   data: Storage.get('messages'),
@@ -13,11 +14,12 @@ const Messages = {
     const div = document.querySelector('div')
     
     const channelClasses = Messages.channelClasses(channel).join(" ")
+    const userPreferences = Preferences.query()
 
     message = parseEmotes(message, tags)
     
     const content = `
-    <p class="mb-4 p-4 shadow bg-gray-800 text-white">
+    <p class="mb-4 p-4 shadow text-white" style="{ background: ${userPreferences.background}; }">
       <span class="text-gray-400 text-sm uppercase mr-4 block tracking-wide ${channelClasses}">${channel}</span>
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
