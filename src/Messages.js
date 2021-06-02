@@ -16,6 +16,8 @@ const Messages = {
     const channelClasses = Messages.channelClasses(channel).join(" ")
     const userPreferences = Preferences.query()
 
+    console.log(userPreferences)
+
     message = parseEmotes(message, tags)
     
     const content = `
