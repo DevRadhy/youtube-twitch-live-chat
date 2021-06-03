@@ -21,7 +21,7 @@ const Messages = {
     message = parseEmotes(message, tags)
     
     const content = `
-    <p class="mb-4 p-4 shadow bg-gray-800 text-white card-message">
+    <p class="mb-4 p-4 shadow" id="card-message">
       <span class="text-gray-400 text-sm uppercase mr-4 block tracking-wide ${channelClasses}">${channel}</span>
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
@@ -31,10 +31,10 @@ const Messages = {
 
     body.style.background = userPreferences.background;
 
-    const cardMessage = document.querySelector('card-message');
+    const cardMessage = document.getElementById('card-message');
 
-    userPreferences.messageColor && cardMessage.classList.remove("bg-gray-800");
-    userPreferences.textColor && cardMessage.classList.remove("text-white");
+    !userPreferences.messageColor && cardMessage.classList.add("bg-gray-800");
+    !userPreferences.textColor && cardMessage.classList.add("text-white");
 
     cardMessage.style.background = userPreferences.messageColor;
     cardMessage.style.color = userPreferences.textColor;
