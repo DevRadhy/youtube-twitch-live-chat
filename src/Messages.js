@@ -26,14 +26,15 @@ const Messages = {
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
     
-    div.innerHTML = content + div.innerHTML;
+    div.innerHTML = div.innerHTML + content;
+    div.scrollTop = div.scrollHeight;
 
-    body.style.background = userPreferences.background
+    body.style.background = userPreferences.background;
 
-    const cardMessage = document.getElementById('card-message')
+    const cardMessage = document.getElementById('card-message');
 
-    cardMessage.style.background = userPreferences.messageColor
-    cardMessage.style.color = userPreferences.textColor
+    cardMessage.style.background = userPreferences.messageColor;
+    cardMessage.style.color = userPreferences.textColor;
   },
   channelClasses(name) {
     const channels = {
