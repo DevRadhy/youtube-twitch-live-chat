@@ -1,7 +1,5 @@
 import { Storage } from './Storage.js';
-import { Preferences } from './Preferences.js';
 import { parseEmotes } from './Emotes.js';
-import { Preferences } from './Preferences.js';
 
 const Messages = {
   data: Storage.get('messages'),
@@ -15,8 +13,6 @@ const Messages = {
     const div = document.querySelector('div')
     
     const channelClasses = Messages.channelClasses(channel).join(" ")
-
-    const userPreferences = Preferences.getAll()
 
     message = parseEmotes(message, tags)
     
