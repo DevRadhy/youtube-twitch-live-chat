@@ -1,6 +1,6 @@
 import { Storage } from './Storage.js';
 import { parseEmotes } from './Emotes.js';
-import { Preferences } from '../lib/preferences.js';
+import { Preferences } from './Preferences.js';
 
 const Messages = {
   data: Storage.get('messages'),
@@ -25,9 +25,9 @@ const Messages = {
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
     
-    div.innerHTML = content + div.innerHTML;
+    div.innerHTML = content + div.innerHTML
 
-    body.style.background = `#${userPreferences.background}` || "none"
+    body.style.background = `#${userPreferences.background}`
 
     const cardMessages = document.getElementById('card-message')
 
