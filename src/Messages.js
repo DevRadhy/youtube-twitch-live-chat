@@ -1,5 +1,5 @@
 import { Storage } from './Storage.js';
-import { Preferences } from './Preferences';
+import { Preferences } from './Preferences.js';
 import { parseEmotes } from './Emotes.js';
 
 const Messages = {
