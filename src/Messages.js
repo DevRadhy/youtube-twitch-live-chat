@@ -1,4 +1,5 @@
 import { Storage } from './Storage.js';
+import { Preferences } from './Preferences.js';
 import { parseEmotes } from './Emotes.js';
 import { Preferences } from './Preferences.js';
 
@@ -12,29 +13,21 @@ const Messages = {
   },
   render({ tags, message, channel }) {
     const div = document.querySelector('div')
-    const body = document.querySelector('body')
     
     const channelClasses = Messages.channelClasses(channel).join(" ")
+
     const userPreferences = Preferences.getAll()
 
     message = parseEmotes(message, tags)
     
     const content = `
-    <p class="mb-4 p-4 shadow bg-gray-800 text-white" id="card-message">
+    <p class="mb-4 p-4 shadow bg-gray-800 text-white card-message">
       <span class="text-gray-400 text-sm uppercase mr-4 block tracking-wide ${channelClasses}">${channel}</span>
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
     
-    div.innerHTML = div.innerHTML + content
-
-    div.scrollTop = div.scrollHeight
-
-    body.style.background = userPreferences.background
-
-    const cardMessages = document.getElementById('card-message')
-
-    cardMessages.style.background = userPreferences.messageBackground
-    cardMessages.style.color = userPreferences.textColor
+    div.innerHTML = div.innerHTML + content;
+    div.scrollTop = div.scrollHeight;
   },
   channelClasses(name) {
     const channels = {
