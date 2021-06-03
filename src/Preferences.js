@@ -2,16 +2,24 @@ const querys = location.search
 const queryURL = new URLSearchParams(querys)
 
 const Preferences = {
-  get(prop) {
-    return queryURL.get(prop)
-  },
-  query() {
-    const background = this.get("bg")
-    const messageBackground = this.get("msg")
-    const textColor = this.get("text")
+  get(params) {
+    const paramsHasPresent = queryURL.has(params)
 
-    return { background, messageBackground, textColor }
-  }
+    if(!paramsHasPresent) return
+    
+    const userPreference = queryURL.get(params)
+
+    if(userPreference === "none") return "none"
+
+    return `#${userPreference}`
+  },
+  getAll() {
+    return {
+      background: this.get("bg"),
+      messageColor: this.get("msg"),
+      textColor: this.get("text"),
+    }
+  },
 }
 
 export { Preferences }
