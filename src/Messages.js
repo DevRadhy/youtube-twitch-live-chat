@@ -12,7 +12,6 @@ const Messages = {
   },
   render({ tags, message, channel }) {
     const div = document.querySelector('div')
-    const cardMessages = document.getElementById('card-message')
     
     const channelClasses = Messages.channelClasses(channel).join(" ")
     const userPreferences = Preferences.query()
@@ -28,6 +27,8 @@ const Messages = {
     div.innerHTML = content + div.innerHTML;
 
     div.style.background = `#${userPreferences.background}`
+
+    const cardMessages = document.getElementById('card-message')
 
     cardMessages.style.background = `#${userPreferences.messageBackground}`
     cardMessages.style.color = `#${userPreferences.textColor}`
