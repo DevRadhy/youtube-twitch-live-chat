@@ -30,6 +30,8 @@ const Messages = {
 
     const cardMessages = document.getElementById('card-message')
 
+    console.log(cardMessages)
+
     cardMessages.style.background = `#${userPreferences.messageBackground}`
     cardMessages.style.color = `#${userPreferences.textColor}`
   },
