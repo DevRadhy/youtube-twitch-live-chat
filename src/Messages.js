@@ -17,8 +17,6 @@ const Messages = {
     const channelClasses = Messages.channelClasses(channel).join(" ")
     const userPreferences = Preferences.query()
 
-    console.log(userPreferences)
-
     message = parseEmotes(message, tags)
     
     const content = `
@@ -30,8 +28,6 @@ const Messages = {
     div.innerHTML = content + div.innerHTML;
 
     div.style.background = `#${userPreferences.background}`
-
-    if(!cardMessages) return
 
     cardMessages.style.background = `#${userPreferences.messageBackground}`
     cardMessages.style.color = `#${userPreferences.textColor}`
