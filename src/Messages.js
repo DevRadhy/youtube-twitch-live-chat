@@ -26,7 +26,7 @@ const Messages = {
     
     div.innerHTML = content + div.innerHTML;
 
-    div.style.background = `#${userPreferences.background}`
+    div.style.background = `#${userPreferences.background}` || "none"
 
     const cardMessages = document.getElementById('card-message')
 
