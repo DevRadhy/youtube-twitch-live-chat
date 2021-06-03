@@ -33,8 +33,8 @@ const Messages = {
 
     if(!cardMessages) return
 
-    cardMessages.style.background = `#${userPreferences.messageBackground}`
-    cardMessages.style.color = `#${userPreferences.textColor}`
+    // cardMessages.style.background = `#${userPreferences.messageBackground}`
+    // cardMessages.style.color = `#${userPreferences.textColor}`
   },
   channelClasses(name) {
     const channels = {
