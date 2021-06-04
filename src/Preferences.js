@@ -2,6 +2,22 @@ const querys = location.search
 const queryURL = new URLSearchParams(querys)
 
 const Preferences = {
+  start() {
+    const body = document.querySelector('body');
+    const { background, messageColor, textColor } = this.getAll();
+
+    body.style.background = background;
+
+    const cardMessages = document.querySelectorAll('.card-message');
+
+    cardMessages.forEach((message, index) => {
+      messageColor && message.classList.remove("bg-gray-800");
+      textColor && message.classList.remove("text-white");
+  
+      message.style.background = messageColor;
+      message.style.color = textColor;
+    });
+  },
   get(params) {
     const paramsHasPresent = queryURL.has(params)
 
@@ -19,20 +35,6 @@ const Preferences = {
       messageColor: this.get("msg"),
       textColor: this.get("text"),
     }
-  },
-  change() {
-    const body = document.querySelector('body');
-    const userPreferences = this.getAll();
-
-    body.style.background = userPreferences.background;
-
-    const cardMessage = document.querySelector('.card-message');
-
-    userPreferences.messageColor && cardMessage.classList.remove("bg-gray-800");
-    userPreferences.textColor && cardMessage.classList.remove("text-white");
-
-    cardMessage.style.background = userPreferences.messageColor;
-    cardMessage.style.color = userPreferences.textColor;
   },
 }
 
