@@ -19,20 +19,13 @@ const Messages = {
     message = parseEmotes(message, tags)
     
     const content = `
-    <p class="mb-4 p-4 shadow bg-gray-800 text-white card-message" style="background: ${background}; color: ${textColor};">
+    <p class="mb-4 p-4 shadow bg-gray-800 text-white" style="background: ${messageColor}; color: ${textColor};">
       <span class="text-gray-400 text-sm uppercase mr-4 block tracking-wide ${channelClasses}">${channel}</span>
       <span style="color: ${tags.color}"> ${tags['display-name']}</span>: ${message} 
     </p>`
     
     div.innerHTML = div.innerHTML + content;
     div.scrollTop = div.scrollHeight;
-
-    const cardMessages = document.querySelectorAll('.card-message');
-
-    const lastMessage = cardMessage.length - 1
-
-    messageColor && cardMessages[lastMessage].classList.remove("bg-gray-800");
-    textColor && cardMessages[lastMessage].classList.remove("text-white");
   },
   channelClasses(name) {
     const channels = {
